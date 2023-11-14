@@ -16,6 +16,7 @@ class SList:
         return self
     # Add the print_values method to your SList class
     def print_values(self):
+        print("==========")
         runner = self.head
         while (runner != None):
             print(runner.value)
@@ -33,8 +34,20 @@ class SList:
                 runner = runner.next
             runner.next = new_node
             return self
+    
+    # remove_from_front(self) - remove the first node and return its value
+    def remove_from_front(self):
+        runner = self.head
+        if runner:
+            removed_node = runner.value
+            self.head = runner.next
+            return removed_node
+        else:
+            return None
         
 my_list = SList()
-my_list.add_to_front("is").add_to_front("name").add_to_front("My").add_to_back("Rassim").print_values()
+my_list.add_to_front("is").add_to_front("name").add_to_front("My").add_to_front("Hello").add_to_back("Rassim").print_values()
+my_list.remove_from_front()
+my_list.print_values()
 
 
